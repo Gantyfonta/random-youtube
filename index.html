@@ -90,33 +90,95 @@
   <audio id="explosionSound" src="https://www.soundjay.com/button/sounds/button-10.mp3"></audio>
 
   <script>
-    function generateRandomYouTubeID() {
-      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';
-      let id = '';
-      for (let i = 0; i < 11; i++) {
-        id += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
-      return id;
-    }
+    const videoIds = [
+      "cDA3_5982h8", // Exact Instructions Challenge - THIS is why my kids hate me.
+      "wdLwofJkcmc", // 5 Viral YouTube Channel Ideas For Beginners
+      "L9r177hSBc0",
+"_cr46G2K5Fo",
+"QzP3vx8XadU",
+"hEJkLX9oXhQ",
+"vgPJZ1ktT50",
+"F7bssgaBD6Y",
+"Sk2pOvHn2Cc",
+"LlwoWpvVpa4",
+"uNnHiic6PUg",
+"fjWOB0KrdHM",
+"87Jor5G_NBs",
+"K2lQ1u2gnIM",
+"xfa8Byfw",
+"4sxjmrkI_oI",
+"E1Su3L9abrY",
+"4uMIRRKdBLg",
+"pRzma0jkgko",
+"q285sYDIMfw",
+"2b0bFCKhOGU",
+"0e9rYi6Ooh0",
+"tEVKiebgWkU",
+"TcQTmD9KU0A",
+"i1qmHULG2s0",
+"ET4Odx2E3cE",
+"a-3ujYEg9A4",
+"7xiLUZeTm-k",
+"503PdIAVrSA",
+"lOBBx3Vwaaw",
+"pD05MLqwN4Q",
+"zTYJJad6aJQ",
+"H2h40z43B0c",
+"eYdDm_-oj08",
+"c6oOTu7ekXY",
+"BojYFle_TeA",
+"pGalFdHuTHo",
+"jo4CtOnmwOc",
+"5JjTYwlaGtw",
+"iWr-PRFQJHw",
+"BaVEnbacmBI",
+"OnqC7gL1EW4",
+"KoZawQNC3wE",
+"CbyqUkV_QtI",
+"Gebw8NP1kIE",
+"pmD2tPSbgog",
+"WlgeUXlOMTc",
+"5UqaL49PuZI",
+"tuHuOx-pwio",
+"vcQip4xeRIU",
+"_OcpgOI_Di0",
+"IEHiY8scAKI",
+"CYtZQVNKR7Q",
+"rZIuVjLeWHU",
+"vAwPDvXzqjI",
+"yM5OQxjvl8U",
+"xQNjSTBDrHE",
+"o3ftECYtkf0",
+"qORTmuuO7KA",
+"WtU6ky51iA4",
+"8R1_TqU68yo",
+"8MaMo9MXjH4",
+"NnU7TqpPMKE",
+"RJ34R8Yo7vk",
+"dTxltE-wQ4M",
+"IDgybCF8CFg",
+"knkEzgT_UeE",
+"xvFZjo5PgG0",
+
+    ];
 
     function playRandomVideo() {
-      const button = document.getElementById('doomButton');
       const doomMessage = document.getElementById('doomMessage');
       const explosionSound = document.getElementById('explosionSound');
+      const button = document.getElementById('doomButton');
 
-      // Play sound
+      // Play sound and show doom message
       explosionSound.currentTime = 0;
       explosionSound.play();
-
-      // Show doom message
       doomMessage.style.display = 'block';
-
-      // Add glow effect
       button.classList.add('glow');
 
-      // Load random YouTube video
-      const videoId = generateRandomYouTubeID();
+      // Select a random video ID from the array
+      const randomIndex = Math.floor(Math.random() * videoIds.length);
+      const videoId = videoIds[randomIndex];
       const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+
+      // Load the selected video
       document.getElementById('videoBox').innerHTML = `<iframe src="${embedUrl}" allowfullscreen></iframe>`;
     }
   </script>
